@@ -1,0 +1,217 @@
+html{
+    scroll-behavior: smooth;
+ }
+ 
+ body{
+     background: linear-gradient(to right, #FAFFD1, #0dff81);
+     padding: 0% 22%;
+     font-family: "Nunito", sans-serif;
+ }
+ 
+ .container-lg{
+      border: 2px solid black;
+      height: 100vh;
+      padding: 0px;
+      position: relative;
+ }
+ 
+ #top{
+     background: linear-gradient(45deg, #f2ff5f, #74b4fe);
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     padding: 1%;
+     padding-left: 2%;
+     
+ }
+ 
+ h1{
+     color: black;
+     margin-top:20px;
+     margin-left: 2%;
+     font-size: 2.4rem;
+ }
+ 
+ .navbar-brand{
+     width: 70px;
+     height: 70px;
+ }
+ 
+ .chat-container{
+     overflow-x: hidden;
+     overflow-y: scroll;
+     height: 76%;
+     /* border: 2px solid red; */
+     width: 100%;
+     margin-top: 5%;
+     scroll-behavior: smooth;
+     hyphens:auto;
+     position: absolute;
+ }
+ 
+ .chat-bar-input-block{
+      /* border: 2px solid blue; */
+      background-color:  var(--bs-secondary-color);
+      position:fixed;
+      width: 55.5%;
+      bottom: 0px;
+      display: flex;
+      flex-direction: row;
+      padding: 10px 5px;
+      
+ }
+ 
+  .chat-bar-icons{
+      margin-left: 5px;
+ } 
+  
+ #chat-icon{
+     opacity: 0.7;
+ }
+ 
+ #userInput{
+     width: 95%;
+ }
+ 
+ .input-box{
+     float: left;
+     border: none;
+     box-sizing: border-box;
+     width: 100%;
+     border-radius: 10px;
+     padding: 10px;
+     font-size: 1rem;
+     color:black;
+     background-color: white;
+     outline:none;
+ 
+ }
+  
+ h5{
+     text-align: center;
+     font-size: 1.3rem;
+     background: rgba(255,255,255,0.4);
+     width: 100px;
+     margin: auto;
+     margin-top: 2%;
+     padding: 1%;
+     border-radius: 10px;
+     color: black;
+ 
+ }
+ 
+ .userText {
+     color: white;
+     font-family: "Nunito", sans-serif;
+     font-size: 16px;
+     font-weight: normal;
+     text-align: right;
+     clear: both;
+ }
+ 
+ .userText span {
+     line-height: 1.5em;
+     display: inline-block;
+     background:var(--bs-secondary-color);
+     padding: 10px;
+     border-radius: 8px;
+     border-bottom-right-radius: 2px;
+     max-width: 80%;
+     margin-right: 10px;
+     animation: floatup .5s forwards
+ }
+ 
+ .btn {
+   align-items: center;
+   appearance: none;
+   background-color: #FCFCFD;
+   border-radius: 4px;
+   border-width: 0;
+   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+   box-sizing: border-box;
+   color: #36395A;
+   cursor: pointer;
+   display: inline-flex;
+   font-family: "JetBrains Mono",monospace;
+   height: 48px;
+   justify-content: center;
+   line-height: 1;
+   list-style: none;
+   overflow: hidden;
+   padding-left: 16px;
+   padding-right: 16px;
+   position: relative;
+   text-align: left;
+   text-decoration: none;
+   transition: box-shadow .15s,transform .15s;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   white-space: nowrap;
+   will-change: box-shadow,transform;
+   font-size: 18px;
+ }
+ 
+ .btn:focus {
+   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+ }
+ 
+ .btn:hover {
+   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+   transform: translateY(-2px);
+ }
+ 
+ .btn:active {
+   box-shadow: #D6D6E7 0 3px 7px inset;
+   transform: translateY(2px);
+ }
+ 
+ .botText {
+     color: #000;
+     font-family: "Nunito", sans-serif;
+     font-weight: bold;
+     font-size: 16px;
+     text-align: left;
+     margin-bottom: 70px;
+ }
+ 
+ #chatbox{
+     margin-bottom: 20px;
+ }
+ 
+ .botText span {
+     line-height: 1.5em;
+     display: inline-block;
+     background: #e0e0e0;
+     padding: 10px;
+     border-radius: 8px;
+     border-bottom-left-radius: 2px;
+     max-width: 80%;
+     margin-left: 10px;
+     animation: floatup .5s forwards
+ }
+ 
+ 
+ @media (max-width:850px) {
+     
+     body{
+         padding: 0px;
+     }
+     
+ 
+     h1{
+         font-size: 1.8rem;
+     }
+     
+     .chat-bar-input-block{
+         width: 100%;
+     }
+ 
+  
+ }
+ 
+ 
+ 
+ 
