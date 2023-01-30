@@ -130,7 +130,7 @@ document.getElementById("navbar-toggle").addEventListener("click", function() {
   document.getElementById("signinbtn").addEventListener("click", function() {
     window.location.href = "/signin";
   });
-  // document.getElementById("logoclick").addEventListener("click", function() {
-  //   window.location.href = "index.pug";
-  // });
+  document.getElementById("logoclick").addEventListener("click", function() {
+    window.location.href = "/";
+  });
   
