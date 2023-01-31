@@ -34,12 +34,13 @@ app.use(express.urlencoded());
 app.set('view engine', 'pug')   // Set the template engine as pug
 app.set('views', path.join(__dirname,'views')) // Set the views directory
 
+let content=fs.readFileSync('./views/submit.html',"utf-8");
 
 app.post('/complain', (req,res)=>{ 
      // Saving the data recieved from user to the database
     var mydata=new complain(req.body);
     mydata.save().then(()=>{
-        res.send(`<h1>Your complain has been successfully submitted <a href="/">Click here to reach home </a> </h1>`)
+        res.send(content);
     }).catch(()=>{
         res.status(400).send("<h1>Submission is unsuccessful! <br> Try Again</h1>")
     })
