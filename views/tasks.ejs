@@ -7,11 +7,19 @@
     <title>Hostel Chat Bot - Tasks</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon-16x16.png">
     <link rel="stylesheet" href="../static/CSS/tasks.css">
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
 </head>
 <body>
     
-    <table>
+  <div class="container">
+  <div class="home">
+    <a href="/"><button>Home</button></a>
+    <a href="/chatbot"><button>Chatbot</button></a>
+  </div>
+   
+    <input type="text" name="tasks" id="mytask" placeholder="Search your task here" onkeyup="myfunction()">
+
+    <table id="mytable">
        <thead>
           <tr>
             <th>Status</th>
@@ -29,7 +37,7 @@
            <%x.forEach((y)=>{%>
               
              <tr>
-                <td> <form method="post"><input type="checkbox" class="save-cb-state" name=<%=y._id%> onclick = "sendEmail()"></form> </td>
+                <td><input type="checkbox" class="save-cb-state" name=<%=y._id%>> </td>
                 <td><%=y.name%></td>   
                 <td><%=y.phone%></td>
                 <td><%=y.email%></td>
@@ -43,7 +51,7 @@
        </tbody>
 
     </table>
-    
+  </div>
 
     <script>
       // Avoid scoping issues by encapsulating code inside anonymous function
@@ -89,64 +97,37 @@
         });
       })();
       </script>
+      
+<script>
+    function myfunction(){
+        
+      let filter = document.getElementById('mytask').value.toUpperCase();
+      let mytable=document.getElementById('mytable');
+      let tr= mytable.getElementsByTagName('tr');
 
-  <script type="text/javascript">
-     function sendEmail() {
-      Email.send({
-       Host: "smtp.gmail.com",
-       Username: "hostelchat314@gmail.com",
-       Password: "juiccskzxlfqbltc",
-       To:`arvinddakshana20@gmail.com`,
-       From: "hostelchat314@gmail.com",
-       Subject: "Sending Email using javascript",
-       Body: "Well that was easy!!",
-     })
-       .then(function (message) {
-         alert("mail sent successfully")
-       });
-   }
+      for(var i=0;i<tr.length;i++){
+          let td=tr[i].getElementsByTagName('td')[6];
 
-  </script>
+          if(td){
+             let textvalue=td.textContent || td.innerHTML;
+             
+             if(textvalue.toUpperCase().indexOf(filter) > -1){
+                  tr[i].style.display="";
+             }
+             else{
+                tr[i].style.display="none";
+             }
+          }
+      }
+    }
+
+     
+</script>
 
 </body>
 </html>
 
 
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-<title>Send Mail</title>
-<script src=
-	"https://smtpjs.com/v3/smtp.js">
-</script>
-
-<script type="text/javascript">
-	function sendEmail() {
-      Email.send({
-       Host: "smtp.gmail.com",
-       Username: "hostelchat314@gmail.com",
-       Password: "juiccskzxlfqbltc",
-       To:`arvinddakshana20@gmail.com`,
-       From: "hostelchat314@gmail.com",
-       Subject: "Sending Email using javascript",
-       Body: "Well that was easy!!",
-     })  
-       .then(function (message) {
-         alert("mail sent successfully")
-       });
-	}
-</script>
-</head>
-
-<body>
-<form method="post">
-	<input type="button" value="Send Email"
-		onclick="sendEmail()" />
-</form>
-</body>
-
-</html> -->
 
 
 

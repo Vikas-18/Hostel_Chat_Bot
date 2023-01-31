@@ -39,7 +39,7 @@ app.post('/complain', (req,res)=>{
      // Saving the data recieved from user to the database
     var mydata=new complain(req.body);
     mydata.save().then(()=>{
-        res.send("<h1>Your complain has been successfully submitted</h1>")
+        res.send(`<h1>Your complain has been successfully submitted <a href="/">Click here to reach home </a> </h1>`)
     }).catch(()=>{
         res.status(400).send("<h1>Submission is unsuccessful! <br> Try Again</h1>")
     })
@@ -75,14 +75,14 @@ app.post('/signin',(req,res)=>{
     const transporter = nodemailer.createTransport({
         service:'gmail',
         auth:{
-         user:'hostelchat314@gmail.com',
-         pass:'juiccskzxlfqbltc'
+            user:'hostelchatbot544@gmail.com',
+            pass:'wqtnfhhjkyqymytx'
       },
  });
  
  
  const mailoptions = {
-       from:'hostelchat314@gmail.com',
+       from:'hostelchatbot544@gmail.com',
        to:`${emailsent.email}`,
        subject:'Hostel Chat Bot Signing in',
        text:`You have successfully sign in to Hostel Chat Bot App. `
@@ -116,7 +116,7 @@ app.get('/signin', (req,res)=>{
 });
 
 app.get('/chatbot', (req,res)=>{
-    res.status(200).render('chatbot.pug');
+    res.status(200).send(Filecontent);
 });
 
 app.get('/complain', (req,res)=>{
