@@ -13,28 +13,28 @@ function getBotResponse(input) {
          s=`You can contact or Email the main electrician of hostel<br><br>Electrician: Amit Kumar <br> Room No.: G05 <br> Contact No.: 9890110989 <br> Whatsapp No.:9890110989<br>
          Email: amitkumar@gmail.com. <br><br>
          For getting the complain format. Click on format button <br><br>
-         <a href="/complain"><button>Submit your complain here</button></a>`;
+         <a href="/complain"><button class="submitbtn">Click To Submit Complain</button></a>`;
          return s;
          
          case "2":
          s=`You can contact or Email the Plumber of hostel<br><br>Plumber: Shankar Sinha <br> Room No.: G10 <br> Contact No.: 9890110981 <br> Whatsapp No.:9890110981<br>
          Email: sskumar@gmail.com. <br><br>
          For getting the complain format. Click on format button <br><br>
-         <a href="/complain"><button>Submit your complain here</button></a>` ;
+         <a href="/complain"><button class="submitbtn">Click To Submit Complain</button></a>` ;
          return s;
 
          case "3":
          s=`You can contact or Email the head chef of the mess<br><br>Head Chef: Vijayshankar Chandrakar <br> Room No.: G011 <br> Contact No.: 9890110989 <br> Whatsapp No.:9890110989<br>
          Email: vjiakumar@gmail.com. <br><br>
          For getting the complain format. Click on format button <br><br>
-         <a href="/complain"><button>Submit your complain here</button></a>` ;
+         <a href="/complain"><button class="submitbtn">Click To Submit Complain</button></a>` ;
          return s;
 
          case "4":
             s=`You can contact or Email Furniture maker<br><br>Name: Sharad Kumar <br> Room No.: G010 <br> Contact No.: 9890110989 <br> Whatsapp No.:9890110989<br>
             Email: sdkumar@gmail.com. <br><br>
             For getting the complain format. Click on format button <br><br>
-            <a href="/complain"><button>Submit your complain here</button></a>` ;
+            <a href="/complain"><button class="submitbtn">Click To Submit Complain</button></a>` ;
             return s;
 
          case "5":
@@ -45,31 +45,32 @@ function getBotResponse(input) {
          Email: skumar@gmail.com. <br><br>
 
          For getting the complain format. Click on format button <br><br>
-         <a href="/complain"><button>Submit your complain here</button></a>` ;
+         <a href="/complain"><button class="submitbtn">Click To Submit Complain</button></a>` ;
          return s;
 
          case "6": 
             s=`You can contact sweeping team head<br><br>Head Sweeper: Sudip <br> Room No.: G45 <br> Contact No.: 9890110989 <br> Whatsapp No.:9890110989<br>
             Email: sudip@gmail.com. <br><br>
             For getting the complain format. Click on format button <br><br>
-            <a href="/complain"><button>Submit your complain here</button></a>` ;
+            <a href="/complain"><button class="submitbtn">Click To Submit Complain</button></a>` ;
             return s;
 
          case "7":
          s=`You can contact the below mentioned students who are the group admin of the common hostel group just join in that group and mention your missing issue<br><br>Abhishek Mishra<br> Room No.: 513 <br> Contact No.: 9890110989 <br><br>
-         Pramil Kesharwani<br>Room No.: 336 <br> Contact No.: 9890110989 <br><br>`
+         Pramil Kesharwani<br>Room No.: 336 <br> Contact No.: 9890110989 <br><br>  
+         <a href="/complain"><button class="submitbtn">Click To Submit Complain</button></a>`
          return s;
 
          case "8":
             s=`You can contact or Email the Chief Warden of hostel<br><br>Chief Warden: Saurabh Kumar <br> Room No.: G12 <br> Contact No.: 9890110989 <br> Whatsapp No.:9890110989<br>
             Email: skumar@gmail.com. <br><br>
             For getting the complain format. Click on format button <br><br>
-            <a href="/complain"><button>Submit your complain here</button></a>` ;
+            <a href="/complain"><button class="submitbtn">Click To Submit Complain</button></a>` ;
             return s;
          case "9": 
             return s;
          case "10":
-         return `Sure. Let me how else can I help you.`;
+         return `Sure. <br>Let me know how else, I can help you.`;
          default:
             return s;
       }

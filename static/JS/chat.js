@@ -20,7 +20,7 @@ function getTime(){
 let s=prompt("Enter your name");
       
 function firstBotMessage(){
-    let firstMessage=`Hello ${s} <br> Welcome to Hostel Mate App <br> Click on <button onclick="menu()"> Main Menu </button> to access our sevices <br>`;
+    let firstMessage=`Hello ${s} <br> Welcome to Hostel Mate App <br> Click on <button class="btn" onclick="menu()"> Main Menu </button> to access our sevices <br>`;
     document.getElementById("botStartMessage").innerHTML=`<p class="botText"><span>` + firstMessage +`</span></p>`;
    
     let time = getTime();
