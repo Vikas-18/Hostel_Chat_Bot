@@ -73,17 +73,6 @@ function getResponse(){
 
 }
 
-// function buttonSendText(sampleText){
-//     let userHtml=`<p class="userText"><span>` + sampleText+`</span></p>`;
-//     $("#textInput").val("");
-//     $("#chatbox").append(userHtml);
-//     document.getElementById("chat-bar-bottom").scrollIntoView(false);
-// }
-
-// function sendButton(){
-//     getResponse();
-// }
-
 
 // Press Enter to send button
 $("#textInput").keypress(function(e){
@@ -91,3 +80,12 @@ $("#textInput").keypress(function(e){
         getResponse();
      }
 })
+document.getElementById("chat-icon").addEventListener("click", function() {
+    var enterEvent = new KeyboardEvent("keypress", {
+      bubbles: true,
+      cancelable: true,
+      keyCode: 13
+    });
+    document.getElementById("textInput").dispatchEvent(enterEvent);
+  });
+  
