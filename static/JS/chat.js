@@ -58,7 +58,7 @@ function getResponse(){
     let userText =$("#textInput").val();
 
     if(userText==""){
-        userText="I love Code Palace!";
+        userText="Press Main Menu Please";
     }
 
     let userHtml=`<p class="userText"><span>` + userText + `</span></p>`;
