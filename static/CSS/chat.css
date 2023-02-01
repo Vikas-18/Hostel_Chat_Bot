@@ -68,7 +68,7 @@ h1 {
 #chat-icon {
   opacity: 0.7;
 }
-.hvr-forward {
+.hvr-grow {
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -79,9 +79,9 @@ h1 {
   -webkit-transition-property: transform;
   transition-property: transform;
 }
-.hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
-  -webkit-transform: translateX(8px);
-  transform: translateX(8px);
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 #userInput {
