@@ -13,8 +13,7 @@
     
   <div class="container">
   <div class="home">
-    <a href="/"><button>Home</button></a>
-    <a href="/chatbot"><button>Chatbot</button></a>
+   <button id="homebtn" class="button-64" role="button"><span class="text">Home</span></button>
   </div>
    
     <input type="text" name="tasks" id="mytask" placeholder="Search your task here" onkeyup="myfunction()">
@@ -121,6 +120,10 @@
       }
     }
 
+    document.getElementById("homebtn").addEventListener("click", function() {
+    window.location.href = "/";
+  });
+   
      
 </script>
 

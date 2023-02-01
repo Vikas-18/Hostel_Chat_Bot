@@ -26,7 +26,7 @@ const signin=mongoose.model("sign",complainSchema);
 const complain = mongoose.model("hostel",complainSchema);
 
 // EXPRESS SPECIFIC STUFF
-app.use('/static', express.static('static'));  // For servimg static files
+app.use('/static', express.static('static'));  // For serving static files
 app.use(express.urlencoded());
 
 
