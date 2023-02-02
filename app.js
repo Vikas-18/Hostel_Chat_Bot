@@ -70,7 +70,7 @@ app.post('/admin',(req,res)=>{
     console.log(req.body);
 
     let hostel1=null;
-    if(req.key=="hmnd")
+    if(req.body.key=="hmnd")
       hostel1="Hostel-Mahanadi";
     else if(req.body.key=="idwt")
       hostel1="Hostel-Indrawati";
