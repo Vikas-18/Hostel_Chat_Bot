@@ -69,7 +69,7 @@ app.get('/admin',(req,res)=>{
 app.post('/admin',(req,res)=>{
     console.log(req.body);
 
-    let hostel1;
+    let hostel1=null;
     if(req.key=="hmnd")
       hostel1="Hostel-Mahanadi";
     else if(req.body.key=="idwt")
@@ -89,6 +89,7 @@ app.post('/admin',(req,res)=>{
     else if(req.body.key=="srpr")
       hostel1="Hostel-Sirpur";
 
+    if(hostel1!=null){
       complain.find({hostel:hostel1})
       .then((x)=>{
           res.status(200).render('tasks.ejs',{x});
@@ -97,6 +98,8 @@ app.post('/admin',(req,res)=>{
       .catch((y)=>{
           console.log(y);
       })
+    }
+    else res.status(400).send(`<script>alert("Invalid Admin Key")</script>`);
     
 });
 
@@ -121,7 +124,7 @@ app.get('/admin/:key',(req,res)=>{
       hostel1="Hostel-Kotumsar";
     else if(req.body.key=="srpr")
       hostel1="Hostel-Sirpur";
-
+    
       complain.find({hostel:hostel1})
       .then((x)=>{
           res.status(200).render('tasks.ejs',{x});
@@ -130,6 +133,7 @@ app.get('/admin/:key',(req,res)=>{
       .catch((y)=>{
           console.log(y);
       })
+    
 })
 
 
