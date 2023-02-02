@@ -67,7 +67,6 @@ app.get('/admin',(req,res)=>{
 })
 
 app.post('/admin',(req,res)=>{
-      
     console.log(req.body);
 
     let hostel1;
@@ -100,6 +99,38 @@ app.post('/admin',(req,res)=>{
       })
     
 });
+
+app.get('/admin/:key',(req,res)=>{
+    req.body.key = req.params.key;
+    let hostel1;
+    if(req.body.key=="hmnd")
+      hostel1="Hostel-Mahanadi";
+    else if(req.body.key=="idwt")
+      hostel1="Hostel-Indrawati";
+    else if(req.body.key=="pgh")
+      hostel1="PG Hostel";
+    else if(req.body.key=="snth")
+      hostel1="Seonath";
+    else if(req.body.key=="mnpt")
+      hostel1="Hostel-Mainput";
+    else if(req.body.key=="ctkt")
+      hostel1="Hostel-Chitrakot";
+    else if(req.body.key=="mlhr")
+      hostel1="Hostel-Malhar";
+    else if(req.body.key=="ktmsr")
+      hostel1="Hostel-Kotumsar";
+    else if(req.body.key=="srpr")
+      hostel1="Hostel-Sirpur";
+
+      complain.find({hostel:hostel1})
+      .then((x)=>{
+          res.status(200).render('tasks.ejs',{x});
+          console.log(x);
+      })
+      .catch((y)=>{
+          console.log(y);
+      })
+})
 
 
 
