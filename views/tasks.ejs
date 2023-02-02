@@ -66,7 +66,10 @@
          // state for matching elements
          for(var i in cbstate) {
            var el = document.querySelector('input[name="' + i + '"]');
-           if (el) el.checked = true;
+           if (el) {
+            el.checked = true;
+            el.disabled=true;
+           }
          }
        
          // Get all checkboxes that you want to monitor state for
@@ -80,6 +83,7 @@
              // If checkboxe is checked then save to state
              if (this.checked) {
                cbstate[this.name] = true;
+               this.disabled=true;
              }
          
          // Else remove from state
