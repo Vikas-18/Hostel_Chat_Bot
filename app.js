@@ -30,7 +30,7 @@ const enroll1234=mongoose.model("enrollmentnumberdetail",complainSchema);
 
 setInterval(() => {
   const thirtySecondsAgo = new Date(Date.now() - 30 * 1000);
-  enroll1234.deleteMany({ date: { $lt: thirtySecondsAgo } }, (err) => {
+  student.deleteMany({ date: { $lt: thirtySecondsAgo } }, (err) => {
     if (err) {
       console.error(err);
     }
