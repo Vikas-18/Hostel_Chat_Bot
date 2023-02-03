@@ -11,21 +11,32 @@ const port=8000;
 mongoose.connect("mongodb+srv://vikas18:Virat18*@cluster0.s255uxr.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 
 const complainSchema = new mongoose.Schema({ 
-    enrollmentnumber:String,
-    name: String,
-    phone: String,
-    hostel:String,
-    email: String,
-    password:String,
-    confirmpassword:String,
-    room: String,
-    problem: String,
-    comment: String
+  enrollmentnumber:String,
+  name: String,
+  phone: String,
+  hostel:String,
+  email: String,
+  password:String,
+  confirmpassword:String,
+  room: String,
+  problem: String,
+  comment: String,
+  date: { type: Date, default: Date.now }
 });
 
 const student=mongoose.model("studentDetail",complainSchema);
 const complain = mongoose.model("hostel",complainSchema);
 const enroll1234=mongoose.model("enrollmentnumberdetail",complainSchema);
+
+setInterval(() => {
+  const oneMonthAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  complain.deleteMany({ date: { $lt: oneMonthAgo } }, (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
+}, 60 * 60 * 1000);
+
 
 // EXPRESS SPECIFIC STUFF
 app.use('/static', express.static('static'));  // For serving static files
