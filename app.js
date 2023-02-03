@@ -1,5 +1,6 @@
 const express=require('express');
 const app=express();
+const client = require('twilio')('ACdcbe25e646183b97dce30b77825aaf1e','fada037857e3e6d71e1ef05bfd656dd2')
 const path=require('path');
 const nodemailer = require('nodemailer');
 const mongoose=require('mongoose');
@@ -7,7 +8,30 @@ const bodyparser=require('body-parser');
 const cors = require('cors');
 const fs=require('fs');
 const port=8000;
+const numbers = ['+919307286450', '+919151129814', '+919346878442'];
+const message = 'New Complain Is Registered Kindly Look Into That!';
 
+function sendTextmsg() {
+   
+  numbers.forEach((number) => {
+    client.messages
+      .create({
+        to: number,
+        from: '+19134239821',
+        body: message
+      })
+      .then((message) => console.log(message));
+  });
+//   client.messages.create({
+//     body: 'New Complain Has Been Registered Kindly Look Into That',
+//     to: '+919307286450',
+//     from: '+19134239821'
+//  })
+//  .then(message => console.log(message))
+
+//  .catch(error=>console.log(error))
+  
+}
 mongoose.connect("mongodb+srv://vikas18:Virat18*@cluster0.s255uxr.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 
 const complainSchema = new mongoose.Schema({ 
@@ -53,6 +77,7 @@ app.post('/complain', (req,res)=>{
      // Saving the data recieved from user to the database
     var mydata=new complain(req.body);
     mydata.save().then(()=>{
+        sendTextmsg();
         res.send(content);
     }).catch(()=>{
         res.status(400).send("<h1>Submission is unsuccessful! <br> Try Again</h1>")
