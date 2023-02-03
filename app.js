@@ -20,23 +20,12 @@ const complainSchema = new mongoose.Schema({
     confirmpassword:String,
     room: String,
     problem: String,
-    comment: String,
-    date: { type: Date, default: Date.now }
+    comment: String
 });
 
 const student=mongoose.model("studentDetail",complainSchema);
 const complain = mongoose.model("hostel",complainSchema);
 const enroll1234=mongoose.model("enrollmentnumberdetail",complainSchema);
-
-setInterval(() => {
-  const oneMonthAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-  complain.deleteMany({ date: { $lt: oneMonthAgo } }, (err) => {
-    if (err) {
-      console.error(err);
-    }
-  });
-}, 30 * 24 * 60 * 60 * 1000);
-
 
 // EXPRESS SPECIFIC STUFF
 app.use('/static', express.static('static'));  // For serving static files
@@ -206,7 +195,11 @@ app.post('/signin',async(req,res)=>{
         }
      } catch (error) {
          res.status(400).send(error);
-     }    
+     }
+     
+
+
+    
 });
 
 
@@ -254,7 +247,6 @@ app.post("/login",async(req,res)=>{
         res.status(400).send(`<script>alert("Invalid Login details")</script>`);
     }
 });
-
 app.listen(port, () => { 
     console.log(`This application started succesfully on ${port}`);   // by using app.listen we can listen the request at given port.
  });
