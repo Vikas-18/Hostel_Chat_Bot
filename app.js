@@ -29,13 +29,14 @@ const complain = mongoose.model("hostel",complainSchema);
 const enroll1234=mongoose.model("enrollmentnumberdetail",complainSchema);
 
 setInterval(() => {
-  const thirtySecondsAgo = new Date(Date.now() - 30 * 1000);
-  student.deleteMany({ date: { $lt: thirtySecondsAgo } }, (err) => {
+  const oneMonthAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  complain.deleteMany({ date: { $lt: oneMonthAgo } }, (err) => {
     if (err) {
       console.error(err);
     }
   });
-}, 30 * 1000);
+}, 30 * 24 * 60 * 60 * 1000);
+
 
 // EXPRESS SPECIFIC STUFF
 app.use('/static', express.static('static'));  // For serving static files
