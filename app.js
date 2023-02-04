@@ -8,28 +8,40 @@ const bodyparser=require('body-parser');
 const cors = require('cors');
 const fs=require('fs');
 const port=8000;
-const numbers = ['+919307286450', '+919151129814', '+919346878442'];
-const message = 'New Complain Is Registered Kindly Look Into That!';
+
+
+// const numbers = ['+919307286450', '+919151129814', '+919346878442'];
+// const message = 'New Complain Is Registered Kindly Look Into That!';
 
 function sendTextmsg() {
    
-  numbers.forEach((number) => {
-    client.messages
-      .create({
-        to: number,
-        from: '+19134239821',
-        body: message
-      })
-      .then((message) => console.log(message));
-  });
-//   client.messages.create({
-//     body: 'New Complain Has Been Registered Kindly Look Into That',
-//     to: '+919307286450',
-//     from: '+19134239821'
-//  })
-//  .then(message => console.log(message))
+  // numbers.forEach((number) => {
+  //   client.messages
+  //     .create({
+  //       to: number,
+  //       from: '+19134239821',
+  //       body: message
+  //     })
+  //     .then((message) => console.log(message));
+  // });
+  client.messages.create({
+    body: 'New Complain Has Been Registered Kindly Look Into That',
+    to: '+919307286450',
+    from: '+19134239821'
+ })
+  client.messages.create({
+    body: 'New Complain Has Been Registered Kindly Look Into That',
+    to: '+919151129814',
+    from: '+19134239821'
+ })
+  client.messages.create({
+    body: 'New Complain Has Been Registered Kindly Look Into That',
+    to: '+919346878442',
+    from: '+19134239821'
+ })
+ .then(message => console.log(message))
 
-//  .catch(error=>console.log(error))
+ .catch(error=>console.log(error))
   
 }
 mongoose.connect("mongodb+srv://vikas18:Virat18*@cluster0.s255uxr.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
