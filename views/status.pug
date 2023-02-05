@@ -12,7 +12,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../static/CSS/sign.css">
+  <link rel="stylesheet" href="../static/CSS/status.css">
 
 </head>
 
@@ -20,20 +20,21 @@
 
   <div class="container-lg">
     <div class="head">
-      <img src="../static/images/chatbot.png" alt="Hostel Chat Bot Logo">
-      <h1>Hostel Chat Bot</h1>
+      <div class="d-flex justify-content-center">
+        <img src="../static/images/chatbot.png" alt="your-image-description" width="100" height="100">
+      </div>
+      <h1  class="d-flex justify-content-center">Hostel Chat Bot</h1>
     </div>
     <div class="signin">
-      <h2>Check your problem History and Status here</h2>
-    
-    <form action="/status", method="post">
-        <div class="mb-3" style="margin:90px 0px;">
-            <label for="formGroupExampleInput" class="form-label">Enter your phone number</label>
-            <input type="phone" class="form-control" id="formGroupExampleInput" name="phone" placeholder="Enter your phone number" required>
-        </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
-    </form>
+      <h2  class="d-flex justify-content-center">Check your problem History and Status here</h2>
     </div>
+    <form action="/status" method="post">
+      <div class="my-5 d-flex flex-column align-items-center" style="height:100vh; width:100%;">
+
+      <input type="phone" id="formGroupExampleInput" placeholder="Enter Your Phone Number" class="my-3 form-control" style="width: 300px;" name="phone">
+      <input type="submit" class="my-3 btn btn-dark" value="Submit">
+    </div>
+  </form>
   </div>
 
 </body>
