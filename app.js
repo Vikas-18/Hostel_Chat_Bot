@@ -10,20 +10,10 @@ const fs=require('fs');
 const port=8000;
 
 
-// const numbers = ['+919307286450', '+919151129814', '+919346878442'];
-// const message = 'New Complain Is Registered Kindly Look Into That!';
 
 function sendTextmsg() {
    
-  // numbers.forEach((number) => {
-  //   client.messages
-  //     .create({
-  //       to: number,
-  //       from: '+12724442796',
-  //       body: message
-  //     })
-  //     .then((message) => console.log(message));
-  // });
+ 
   client.messages.create({
     body: 'New Complain Has Been Registered Kindly Look Into That',
     to: '+919307286450',
@@ -65,14 +55,13 @@ const complain = mongoose.model("hostel",complainSchema);
 const enroll1234=mongoose.model("enrollmentnumberdetail",complainSchema);
 
 setInterval(() => {
-  const oneMonthAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-  complain.deleteMany({ date: { $lt: oneMonthAgo } }, (err) => {
+  const threeMonthsAgo = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
+  complain.deleteMany({ date: { $lt: threeMonthsAgo } }, (err) => {
     if (err) {
       console.error(err);
     }
   });
 }, 60 * 60 * 1000);
-
 
 // EXPRESS SPECIFIC STUFF
 app.use('/static', express.static('static'));  // For serving static files
@@ -295,6 +284,21 @@ app.post("/login",async(req,res)=>{
         res.status(400).send(`<script>alert("Invalid Login details")</script>`);
     }
 });
+app.get('/status',(req,res)=>{
+  res.status(200).render("status.pug");
+})
+
+app.post('/status',(req,res)=>{
+
+  complain.find({phone:req.body.phone})
+    .then((x)=>{
+        res.status(200).render('tasks.ejs',{x});
+        console.log(x);
+    })
+    .catch((y)=>{
+        console.log(y);
+      })
+})
 app.listen(port, () => { 
     console.log(`This application started succesfully on ${port}`);   // by using app.listen we can listen the request at given port.
  });
